@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if [ -z "$CERT_DOMAINS" ]
+if [ -z ${CERT_DOMAINS+x} ]
 then
+echo "The CERT_DOMAINS variable was not set"
+else
 echo $CERT_DOMAINS > /letsencrypt/domains.txt
 fi
 
